@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-
+// v  number of char witten is the stdout
 int	ft_putstr(char *str)
 {
 	int	counter;
