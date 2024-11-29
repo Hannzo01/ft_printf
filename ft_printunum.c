@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_printunum(unsigned int n)
+int	ft_printunum(unsigned int n)
 {
 	int	counter;
 

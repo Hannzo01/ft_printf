@@ -1,6 +1,6 @@
 #include "ft_printf.h"
 
-int ft_printnum(int n)
+int	ft_printnum(int n)
 {
 	int	i;
 	int	counter;
@@ -12,13 +12,13 @@ int ft_printnum(int n)
 	if (n < 0)
 	{
 		counter += ft_putchar('-');
-		if (n == -2147483648) // Handle edge case for minimum int
-        {
-            counter += ft_putchar('2');
-            n = 147483648; // Remaining positive part
-        }
-        else
-            n = -n;
+		if (n == -2147483648)
+		{
+			counter += ft_putchar('2');
+			n = 147483648;
+		}
+		else
+			n = -n;
 	}
 	while (n != 0)
 	{

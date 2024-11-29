@@ -1,5 +1,5 @@
 #include "ft_printf.h"
-// v  number of char witten is the stdout
+
 int	ft_putstr(char *str)
 {
 	int	counter;
@@ -10,10 +10,11 @@ int	ft_putstr(char *str)
 		str = "(null)";
 	while (*str)
 	{
-		w_counter = write(1, str++, 1);
+		w_counter = ft_putchar(*str);
 		if (w_counter == -1)
 			return (-1);
 		counter += w_counter;
+		str++;
 	}
 	return (counter);
 }

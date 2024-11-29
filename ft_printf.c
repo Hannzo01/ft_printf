@@ -1,25 +1,47 @@
 #include "ft_printf.h"
 
-//my printfi has to return the amount of char written
-int printfi(const char *format, ...)
+static int	format_check(char c, va_list p)
 {
-	va_list p; //pointer points towards the arguments which is the string format
-	// I have to skip the string format and go to the real first argument we need va_Start
-	int	count;
+	int	counter;
 
-	va_start(p, format); //now ap is pointing to the real first argument 
+	counter = 0;
+	if (c == 's')
+		counter += ft_putstr(va_arg(p, char *));
+	else if (c == 'c')
+		counter += ft_putchar(va_arg(p, int));
+	else if (c == 'i' || c == 'd')
+		counter += ft_printnum(va_arg(p, int));
+	else if (c == 'u')
+		counter += ft_printunum(va_arg(p, unsigned int));
+	else if (c == 'x' || c == 'X')
+		counter += ft_printhex(va_arg(p, unsigned int), c);
+	else if (c == '%')
+		counter += ft_putchar('%');
+	else if (c == 'p')
+		counter += ft_printptr(va_arg(p, void *));
+	return (counter);
+}
+
+int	ft_printf(const char *format, ...)
+{
+	va_list	p;
+	int		count;
+
+	va_start(p, format);
 	count = 0;
-
-	//TO CHECK FOR the arguments , loop inside the string and when I find a percent sign 'there will be an argument'
-	// like a flag 
-
 	while (*format != '\0')
 	{
 		if (*format == '%')
-			count += char_format(*(format + 1), p);
+		{
+			count += format_check(*(format + 1), p);
+			format += 2;
+		}
 		else
-			count += ft_putchar(*(format + 1));
+		{
+			count += ft_putchar(*format);
 			format++;
+		}
 	}
 	va_end(p);
+	return (count);
 }
