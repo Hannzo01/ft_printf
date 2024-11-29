@@ -18,10 +18,13 @@ int	ft_printptr(void *p)
 
 	counter = 0;
 	if (p == NULL)
-		return (ft_putstr("(nil)"));
+	{
+		counter += ft_putstr("(nil)");
+		return (counter);
+	}
 	else
 	{
-		counter += ft_putsr("0x");
+		counter += ft_putstr("0x");
 		counter += ft_printhex((unsigned long)p, 'x');
 	}
 	return (counter);

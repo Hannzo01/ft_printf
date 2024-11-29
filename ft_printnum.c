@@ -14,29 +14,25 @@
 
 int	ft_printnum(int n)
 {
-	int	i;
 	int	counter;
 
-	i = 0;
 	counter = 0;
-	if (n == 0)
-		return (ft_putchar('0'));
+	if (n == -2147483648)
+	{
+		counter = ft_putstr("-2147483648");
+		return (counter);
+	}
 	if (n < 0)
 	{
-		counter += ft_putchar('-');
-		if (n == -2147483648)
-		{
-			counter += ft_putchar('2');
-			n = 147483648;
-		}
-		else
-			n = -n;
+		counter = ft_putchar('-');
+		n = -n;
 	}
-	while (n != 0)
+	if (n >= 10)
 	{
-		i = n % 10;
-		counter += ft_putchar(i + 48);
-		n = n / 10;
+		counter += ft_printnum (n / 10);
+		counter += ft_printnum (n % 10);
 	}
+	else
+		counter += ft_putchar(n + 48);
 	return (counter);
 }
