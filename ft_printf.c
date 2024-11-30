@@ -31,6 +31,11 @@ static int	format_check(char c, va_list p)
 		counter += ft_putchar('%');
 	else if (c == 'p')
 		counter += ft_printptr(va_arg(p, void *));
+	else
+	{
+		counter += ft_putchar('%');
+		counter += ft_putchar(c);
+	}
 	return (counter);
 }
 
