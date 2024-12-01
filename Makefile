@@ -5,7 +5,7 @@ OBJ = $(SRC:.c=.o)
 all: $(NAME)
 
 $(NAME): $(OBJ)
-	ar rcs $(NAME) $(OBJ)
+	ar rcs $(NAME) $?
 
 clean:
 	rm -f $(OBJ)
