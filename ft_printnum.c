@@ -18,10 +18,7 @@ int	ft_printnum(int n)
 
 	counter = 0;
 	if (n == -2147483648)
-	{
-		counter = ft_putstr("-2147483648");
-		return (counter);
-	}
+		return (write(1, "-2147483648", 11));
 	if (n < 0)
 	{
 		counter = ft_putchar('-');
