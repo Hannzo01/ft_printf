@@ -18,11 +18,7 @@ int	ft_printunum(unsigned int n)
 
 	counter = 0;
 	if (n >= 10)
-	{
 		counter += ft_printunum (n / 10);
-		counter += ft_printunum (n % 10);
-	}
-	else
-		counter += ft_putchar(n + 48);
+	counter += ft_putchar (n % 10 + 48);
 	return (counter);
 }

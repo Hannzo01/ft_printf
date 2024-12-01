@@ -29,5 +29,7 @@ int	ft_printhex(unsigned long n, char c)
 	}
 	else
 		counter += ft_putchar(array[n]);
+	if (counter == -1)
+		return (-1);
 	return (counter);
 }

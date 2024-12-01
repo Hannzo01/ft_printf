@@ -8,10 +8,10 @@ $(NAME): $(OBJ)
 	ar rcs $(NAME) $?
 
 clean:
-	rm -f $(OBJ)
+	rm -rf $(OBJ)
 
 fclean: clean
-	rm -f $(NAME)
+	rm -rf $(NAME)
 
 re: fclean all
 
