@@ -18,7 +18,7 @@ int	ft_putstr(char *str)
 
 	counter = 0;
 	if (!str)
-		return(write(1, "(null)", 6));
+		return (write(1, "(null)", 6));
 	while (*str)
 	{
 		counter += ft_putchar(*str);
